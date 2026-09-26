@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  /* Design Tokens */
+  --bg:         #0a0d12;
+  --bg-surface: #111520;
+  --bg-card:    #161b27;
+  --border:     rgba(255,255,255,0.07);
+  --accent:     #00e5ff;
+  --accent-dim: #00b8cc;
+  --accent-glow:rgba(0,229,255,0.18);
+  --danger:     #ff4d4f;
+  --warning:    #f5a623;
+  --success:    #52c41a;
+  --text:       #e8eaf0;
+  --text-muted: #7a8299;
+  --text-dim:   #4a5270;
+  --radius:     12px;
+  --radius-lg:  20px;
+  --font:       'Inter', system-ui, sans-serif;
+  --mono:       'JetBrains Mono', monospace;
+
+  /* Event class colors */
+  --c-accident:        #ff2d55;
+  --c-nearmiss:        #ff6b35;
+  --c-redlight:        #ff3b30;
+  --c-wrongway:        #ff9f0a;
+  --c-uturn:           #ffd60a;
+  --c-stopped:         #30d158;
+  --c-jaywalking:      #34aadc;
+  --c-yield:           #5ac8fa;
+  --c-illegalturn:     #bf5af2;
+  --c-solidline:       #ff375f;
+  --c-stopline:        #ff6961;
+  --c-congestion:      #636366;
+  --c-obstacle:        #ffe234;
+  --c-firesmoke:       #ff6b35;
+}
+
+/* Reset & Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity .2s; }
+a:hover { opacity: .8; }
+img { max-width: 100%; display: block; }
+
+/* Global Layout Utilities */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+}
+
+.mono { font-family: var(--mono); }
+.accent-text { color: var(--accent); }
+
+/* Fade-in Animations (will be used by components) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base section padding */
+section { padding: 100px 0; }
+@media (max-width: 768px) {
+  section { padding: 72px 0; }
+}

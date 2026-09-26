@@ -1,0 +1,120 @@
+.resultsSection { background: var(--bg-surface); }
+
+.sectionHeader { margin-bottom: 56px; }
+.sectionTag {
+  display: inline-block;
+  color: var(--accent);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.sectionDesc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.resultCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.resultCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.resultThumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #0c0e15;
+}
+.resultThumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.resultCard:hover .resultThumb img {
+  transform: scale(1.04);
+}
+
+.resultOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,13,18,0.8) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  gap: 8px;
+}
+
+.resultBody { padding: 18px 20px 20px; }
+.resultTitle {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.resultMeta {
+  font-size: .78rem;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  font-family: var(--mono);
+}
+
+.timelineBar {
+  height: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  margin-bottom: 8px;
+}
+.tlSeg {
+  height: 100%;
+  flex-shrink: 0;
+}
+.tlSeg:first-child { border-radius: 4px 0 0 4px; }
+.tlSeg:last-child { border-radius: 0 4px 4px 0; }
+
+.timelineLegend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tlLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .7rem;
+  color: var(--text-muted);
+}
+.tlLegendDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .resultsGrid { grid-template-columns: 1fr; }
+}

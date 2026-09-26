@@ -1,0 +1,99 @@
+.eventsSection { background: var(--bg); }
+
+.sectionHeader { margin-bottom: 56px; }
+.sectionTag {
+  display: inline-block;
+  color: var(--accent);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.sectionDesc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.eventChip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.eventChip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 10px 10px 0 0;
+}
+.eventChip:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+.chipDot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.chipTop { display: flex; align-items: center; gap: 8px; }
+.chipIcon { font-size: 1.3rem; }
+.chipLabel {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--mono);
+  line-height: 1.3;
+}
+.chipSub {
+  font-size: .7rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* Event Specific Styling */
+.ev_accident::before { background: var(--c-accident); }
+.ev_accident:hover { box-shadow: 0 8px 32px rgba(255,45,85,0.15); }
+
+.ev_near_miss::before { background: var(--c-nearmiss); }
+.ev_red_light::before { background: var(--c-redlight); }
+.ev_wrong_way::before { background: var(--c-wrongway); }
+.ev_illegal_u_turn::before { background: var(--c-uturn); }
+.ev_stopped_vehicle::before { background: var(--c-stopped); }
+.ev_jaywalking::before { background: var(--c-jaywalking); }
+.ev_failure_to_yield::before { background: var(--c-yield); }
+.ev_illegal_turn::before { background: var(--c-illegalturn); }
+.ev_solid_line_crossing::before { background: var(--c-solidline); }
+.ev_stop_line::before { background: var(--c-stopline); }
+.ev_congestion::before { background: var(--c-congestion); }
+.ev_road_obstacle::before { background: var(--c-obstacle); }
+.ev_fire_smoke::before { background: var(--c-firesmoke); }
+
+@media (max-width: 480px) {
+  .eventsGrid { grid-template-columns: repeat(2, 1fr); }
+}
